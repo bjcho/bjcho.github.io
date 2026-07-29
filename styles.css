@@ -14,7 +14,7 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font: 16px/1.6 system-ui, sans-serif;
+  font: 16px/1.6 "IBM Plex Mono", "Cascadia Code", monospace;
 }
 
 .site-header {
@@ -41,6 +41,28 @@ section { padding: 5rem 0; }
 h1 { font-size: clamp(2.2rem, 7vw, 5.5rem); line-height: 1.05; max-width: 850px; }
 h2 { color: var(--blue); }
 section:not(.hero) { background: var(--panel); border: 1px solid rgb(93 183 255 / 15%); margin: 1rem 0; padding: 2rem; }
+.section-kicker, .status-dot { color: var(--green); font-size: .8rem; }
+.tag-list { display: flex; flex-wrap: wrap; gap: .6rem; list-style: none; padding: 0; }
+.tag-list li { border: 1px solid rgb(141 255 156 / 40%); border-radius: 999px; color: var(--green); padding: .3rem .7rem; }
+.project-card, .research-grid { display: grid; gap: 1rem; }
+.project-card { border-left: 2px solid var(--green); padding: 1rem; }
+.note-shot { margin: 0 0 1rem; max-width: 280px; }
+.note-shot img { background: #fff; display: block; max-height: 180px; object-fit: contain; width: 100%; }
+.note-shot figcaption { color: var(--muted); font-size: .75rem; margin-top: .4rem; }
+.source-link { color: var(--blue); }
+.research-grid { grid-template-columns: repeat(3, 1fr); }
+.research-grid article { border-top: 1px solid rgb(93 183 255 / 25%); padding-top: 1rem; }
+.game-shell { align-items: center; display: flex; flex-direction: column; gap: 1rem; }
+#game-canvas { background: #050810; border: 1px solid rgb(141 255 156 / 40%); height: min(70vw, 320px); image-rendering: pixelated; max-width: 100%; width: 320px; }
+.game-controls { display: flex; flex-wrap: wrap; gap: .6rem; justify-content: center; }
+.direction-pad { display: grid; gap: .35rem; grid-template-columns: repeat(3, 3rem); }
+.direction-pad button { min-height: 3rem; padding: 0; }
+.direction-pad button:first-child { grid-column: 2; }
+.direction-pad button:nth-child(2) { grid-column: 1; grid-row: 2; }
+.direction-pad button:nth-child(3) { grid-column: 2; grid-row: 2; }
+.direction-pad button:nth-child(4) { grid-column: 3; grid-row: 2; }
+button { background: transparent; border: 1px solid var(--blue); color: var(--text); cursor: pointer; font: inherit; min-height: 44px; padding: .5rem 1rem; }
+button:hover, button:focus-visible { border-color: var(--green); color: var(--green); }
 footer { border-top: 1px solid rgb(93 183 255 / 20%); color: var(--muted); padding: 2rem 5vw; }
 
 @media (max-width: 600px) {
@@ -48,6 +70,7 @@ footer { border-top: 1px solid rgb(93 183 255 / 20%); color: var(--muted); paddi
   nav { gap: .75rem; }
   section { padding: 3.5rem 0; }
   section:not(.hero) { padding: 1.5rem; }
+  .research-grid { grid-template-columns: 1fr; }
 }
 
 @media (prefers-reduced-motion: reduce) {
