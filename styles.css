@@ -107,7 +107,8 @@ footer { border-top: 1px solid rgb(93 183 255 / 20%); color: var(--muted); paddi
   .research-grid { grid-template-columns: 1fr; }
 }
 
-@media (max-width: 900px) {
+/* Keep the identity panel beside the content on desktop-sized viewports. */
+@media (max-width: 767px) {
   .site-shell { display: block; }
   .identity-panel { min-height: auto; padding: 1.5rem 5vw; position: relative; }
   .window-chrome { margin-bottom: 1rem; }
