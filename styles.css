@@ -17,6 +17,37 @@ body {
   font: 16px/1.6 "IBM Plex Mono", "Cascadia Code", monospace;
 }
 
+.site-shell {
+  display: grid;
+  grid-template-columns: minmax(240px, .4fr) minmax(0, .6fr);
+  min-height: 100vh;
+}
+
+.identity-panel {
+  background: linear-gradient(145deg, #0c2630 0%, #102d38 58%, #0a1722 100%);
+  border-right: 1px solid rgb(141 255 156 / 25%);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 2.5rem clamp(1.5rem, 5vw, 4rem);
+  position: sticky;
+  top: 0;
+}
+
+.window-chrome { display: flex; gap: .4rem; margin-bottom: 3rem; }
+.window-chrome i { background: var(--muted); border-radius: 50%; height: .55rem; opacity: .65; width: .55rem; }
+.avatar-frame { align-items: center; background: radial-gradient(circle at 35% 25%, #5db7ff, #173b4b 58%, #07141d); border: 2px solid rgb(141 255 156 / 60%); border-radius: 50%; color: var(--green); display: flex; font-size: clamp(2rem, 5vw, 4rem); font-weight: 700; height: clamp(9rem, 16vw, 13rem); justify-content: center; margin-bottom: 2rem; width: clamp(9rem, 16vw, 13rem); }
+.avatar-image { object-fit: cover; object-position: center; }
+.identity-panel .brand { font-size: clamp(1.7rem, 3vw, 3rem); }
+.identity-role { color: var(--green); font-size: clamp(.9rem, 1.4vw, 1.2rem); margin: .8rem 0; }
+.identity-rule { background: var(--green); height: 2px; margin: 1.5rem 0; opacity: .75; width: 80%; }
+.identity-label { color: var(--muted); font-size: .7rem; letter-spacing: .12em; }
+.identity-panel nav { align-items: flex-start; display: flex; flex-direction: column; gap: .45rem; margin: 1rem 0; }
+.identity-panel nav a { border-left: 2px solid transparent; padding: .35rem .75rem; width: 100%; }
+.identity-panel nav a:hover, .identity-panel nav a:focus-visible { border-left-color: var(--green); color: var(--green); }
+.identity-contact { color: var(--muted); font-size: .8rem; margin-top: auto; }
+.content-panel { min-width: 0; }
+
 .site-header {
   align-items: center;
   background: rgb(7 11 20 / 92%);
@@ -34,13 +65,16 @@ body {
 .brand { color: var(--green); font-weight: 700; }
 nav { display: flex; flex-wrap: wrap; gap: 1rem; }
 nav a:hover, nav a:focus-visible { color: var(--blue); }
-main { margin: 0 auto; max-width: 1100px; padding: 0 5vw 4rem; }
+main { margin: 0 auto; max-width: 1100px; padding: 0 clamp(1.2rem, 4vw, 4rem) 4rem; }
 section { padding: 5rem 0; }
-.hero { min-height: 62vh; display: grid; place-content: center; }
+.hero { min-height: 38vh; display: grid; place-content: center; }
 .eyebrow { color: var(--green); font-size: .8rem; letter-spacing: .12em; }
 h1 { font-size: clamp(2.2rem, 7vw, 5.5rem); line-height: 1.05; max-width: 850px; }
 h2 { color: var(--blue); }
 section:not(.hero) { background: var(--panel); border: 1px solid rgb(93 183 255 / 15%); margin: 1rem 0; padding: 2rem; }
+.density-grid { display: grid; gap: 1rem; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.density-grid section { margin: 0; padding: clamp(1.2rem, 2.5vw, 2rem); }
+.density-grid #project { grid-column: 1 / -1; }
 .section-kicker, .status-dot { color: var(--green); font-size: .8rem; }
 .tag-list { display: flex; flex-wrap: wrap; gap: .6rem; list-style: none; padding: 0; }
 .tag-list li { border: 1px solid rgb(141 255 156 / 40%); border-radius: 999px; color: var(--green); padding: .3rem .7rem; }
@@ -71,6 +105,20 @@ footer { border-top: 1px solid rgb(93 183 255 / 20%); color: var(--muted); paddi
   section { padding: 3.5rem 0; }
   section:not(.hero) { padding: 1.5rem; }
   .research-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 900px) {
+  .site-shell { display: block; }
+  .identity-panel { min-height: auto; padding: 1.5rem 5vw; position: relative; }
+  .window-chrome { margin-bottom: 1rem; }
+  .avatar-frame { height: 7rem; margin-bottom: 1rem; width: 7rem; }
+  .identity-panel nav { flex-direction: row; flex-wrap: wrap; }
+  .identity-contact { margin-top: 1rem; }
+}
+
+@media (max-width: 640px) {
+  .density-grid { display: block; }
+  .density-grid section { margin: 1rem 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {
