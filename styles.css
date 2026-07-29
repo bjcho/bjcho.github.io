@@ -72,8 +72,8 @@ section { padding: 5rem 0; }
 h1 { font-size: clamp(2.2rem, 7vw, 5.5rem); line-height: 1.05; max-width: 850px; }
 h2 { color: var(--blue); }
 section:not(.hero) { background: var(--panel); border: 1px solid rgb(93 183 255 / 15%); margin: 1rem 0; padding: 2rem; }
-.density-grid { display: grid; gap: 1rem; grid-template-columns: repeat(2, minmax(0, 1fr)); }
-.density-grid section { margin: 0; padding: clamp(1.2rem, 2.5vw, 2rem); }
+.density-grid { align-items: stretch; display: grid; gap: 1rem; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.density-grid section { height: 100%; margin: 0; padding: clamp(1.2rem, 2.5vw, 2rem); }
 .density-grid #project { grid-column: 1 / -1; }
 .section-kicker, .status-dot { color: var(--green); font-size: .8rem; }
 .tag-list { display: flex; flex-wrap: wrap; gap: .6rem; list-style: none; padding: 0; }
@@ -115,9 +115,6 @@ footer { border-top: 1px solid rgb(93 183 255 / 20%); color: var(--muted); paddi
   .avatar-frame { height: 7rem; margin-bottom: 1rem; width: 7rem; }
   .identity-panel nav { flex-direction: row; flex-wrap: wrap; }
   .identity-contact { margin-top: 1rem; }
-}
-
-@media (max-width: 640px) {
   .density-grid { display: block; }
   .density-grid section { margin: 1rem 0; }
 }
